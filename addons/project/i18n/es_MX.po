@@ -324,7 +324,7 @@ msgstr ""
 "            % endif\n"
 "            Dedique un momento para valorar nuestros servicios relacionados con la tarea \"<strong>${object.name}</strong>\"\n"
 "            % if object.rating_get_rated_partner_id().name:\n"
-"                asignado a <strong>${object.rating_get_rated_partner_id().name}</strong>.<br/>\n"
+"                asignada a <strong>${object.rating_get_rated_partner_id().name}</strong>.<br/>\n"
 "            % else:\n"
 "                .<br/>\n"
 "            % endif\n"
@@ -962,7 +962,7 @@ msgid ""
 "Choose a <b>name</b> for your project. <i>It can be anything you want: the name of a customer,\n"
 "     of a product, of a team, of a construction site...</i>"
 msgstr ""
-"Elija un <b>nombre</b> para su proyecto. <i>Puede ser lo que quiera: el nombre de un cliente,\n"
+"Elija un <b>nombre</b> para su proyecto. <i>Puede ser lo que usted quiera: el nombre de un cliente,\n"
 "    de un producto, de un equipo, de una construcción...</i>"
 
 #. module: project
@@ -1002,7 +1002,7 @@ msgstr "Color"
 #: model:ir.model.fields,field_description:project.field_project_project__color
 #: model:ir.model.fields,field_description:project.field_project_task__color
 msgid "Color Index"
-msgstr "Indice de colores"
+msgstr "Índice de colores"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__commercial_partner_id
@@ -1837,7 +1837,7 @@ msgstr "Ideas"
 #: model:ir.model.fields,help:project.field_project_task__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
-"Si se encuentra seleccionado hay nuevos mensajes que requieren su atención."
+"Si se encuentra seleccionado, hay nuevos mensajes que requieren su atención."
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__message_has_error
@@ -1846,7 +1846,8 @@ msgstr ""
 #: model:ir.model.fields,help:project.field_project_task__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
-"Si se encuentra seleccionado algunos mensajes presentan un error de entrega."
+"Si se encuentra seleccionado, algunos mensajes presentan un error de "
+"entrega."
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_task_type__mail_template_id
@@ -2784,7 +2785,7 @@ msgstr "Asistente para la eliminación de proyectos"
 #: model_terms:ir.ui.view,arch_db:project.view_project
 #: model_terms:ir.ui.view,arch_db:project.view_project_project_filter
 msgid "Project Manager"
-msgstr "Responsable de proyecto"
+msgstr "Project Manager"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -2915,7 +2916,7 @@ msgstr "Valoración"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__rating_avg
 msgid "Rating Average"
-msgstr "Calificación promedio"
+msgstr "Valoración promedio"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_type__rating_template_id
@@ -3111,22 +3112,22 @@ msgstr "Repetir el año"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_show_day
 msgid "Repeat Show Day"
-msgstr "Repetir el día del espectáculo"
+msgstr "Repeat Show Day"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_show_dow
 msgid "Repeat Show Dow"
-msgstr "Repetir Show Dow"
+msgstr "Repeat Show Dow"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_show_month
 msgid "Repeat Show Month"
-msgstr "Repetir el mes del programa"
+msgstr "Repeat Show Month"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_show_week
 msgid "Repeat Show Week"
-msgstr "Repetir la semana del espectáculo"
+msgstr "Repeat Show Week"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_unit
@@ -4018,7 +4019,7 @@ msgstr "Usar esto para mi proyecto"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__alias_enabled
 msgid "Use email alias"
-msgstr "Usar el seudónimo de correo electrónico"
+msgstr "Use el seudónimo de correo electrónico"
 
 #. module: project
 #. openerp-web
