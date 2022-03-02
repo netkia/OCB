@@ -18,6 +18,7 @@ class Category(models.Model):
     color = fields.Integer('Color Index')
     parent = fields.Many2one('test_new_api.category', ondelete='cascade')
     parent_path = fields.Char(index=True)
+    depth = fields.Integer(compute="_compute_depth")
     root_categ = fields.Many2one(_name, compute='_compute_root_categ')
     display_name = fields.Char(compute='_compute_display_name', inverse='_inverse_display_name')
     dummy = fields.Char(store=False)
@@ -43,6 +44,11 @@ class Category(models.Model):
             while current.parent:
                 current = current.parent
             cat.root_categ = current
+
+    @api.depends('parent_path')
+    def _compute_depth(self):
+        for cat in self:
+            cat.depth = cat.parent_path.count('/') - 1
 
     def _inverse_display_name(self):
         for cat in self:
@@ -516,6 +522,9 @@ class CompanyDependent(models.Model):
     date = fields.Date(company_dependent=True)
     moment = fields.Datetime(company_dependent=True)
     tag_id = fields.Many2one('test_new_api.multi.tag', company_dependent=True)
+    truth = fields.Boolean(company_dependent=True)
+    count = fields.Integer(company_dependent=True)
+    phi = fields.Float(company_dependent=True, digits=(2, 5))
 
 
 class CompanyDependentAttribute(models.Model):

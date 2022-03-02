@@ -12,15 +12,15 @@
 # gsong <gsong2014@foxmail.com>, 2020
 # Odoo Thaidev <odoothaidev@gmail.com>, 2020
 # Khwunchai Jaengsawang <khwunchai.j@ku.th>, 2021
-# Wichanon Jamwutthipreecha, 2021
+# Wichanon Jamwutthipreecha, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-04 15:13+0000\n"
+"POT-Creation-Date: 2022-01-07 14:40+0000\n"
 "PO-Revision-Date: 2020-09-07 08:20+0000\n"
-"Last-Translator: Wichanon Jamwutthipreecha, 2021\n"
+"Last-Translator: Wichanon Jamwutthipreecha, 2022\n"
 "Language-Team: Thai (https://www.transifex.com/odoo/teams/41243/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,24 @@ msgstr "\" alert with a"
 #, python-format
 msgid "\"URL to\" can not be empty."
 msgstr "\"URL to\" can not be empty."
+
+#. module: website
+#: code:addons/website/models/website_rewrite.py:0
+#, python-format
+msgid "\"URL to\" cannot contain parameter %s which is not used in \"URL from\"."
+msgstr "\"URL ถึง\" ต้องไม่มีพารามิเตอร์ %s ซึ่งไม่ได้ใช้ใน \"URL จาก\""
+
+#. module: website
+#: code:addons/website/models/website_rewrite.py:0
+#, python-format
+msgid "\"URL to\" is invalid: %s"
+msgstr "\"URL ถึง\" ไม่ถูกต้อง: %s"
+
+#. module: website
+#: code:addons/website/models/website_rewrite.py:0
+#, python-format
+msgid "\"URL to\" must contain parameter %s used in \"URL from\"."
+msgstr "\"URL ถึง\" ต้องมีพารามิเตอร์ %s ซึ่งใช้ใน \"URL จาก\""
 
 #. module: website
 #: code:addons/website/models/website_rewrite.py:0
@@ -101,17 +119,6 @@ msgid "&amp;lt;head&amp;gt;"
 msgstr "&amp;lt;head&amp;gt;"
 
 #. module: website
-#: model_terms:ir.ui.view,arch_db:website.sitemap_index_xml
-#: model_terms:ir.ui.view,arch_db:website.sitemap_xml
-msgid "&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;"
-msgstr "&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;"
-
-#. module: website
-#: model_terms:ir.ui.view,arch_db:website.default_xml
-msgid "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;"
-msgstr "&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;"
-
-#. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.xml:0
 #, python-format
@@ -161,8 +168,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website.template_header_hamburger_oe_structure_header_hamburger_3
 #: model_terms:ir.ui.view,arch_db:website.template_header_sidebar_oe_structure_header_sidebar_1
 #: model_terms:ir.ui.view,arch_db:website.template_header_vertical_oe_structure_header_vertical_2
-msgid "+1 (650) 691-3277"
-msgstr "+1 (650) 691-3277"
+msgid "+1 (650) 555-0111"
+msgstr "+1 (650) 555-0111"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.show_website_info
@@ -193,11 +200,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website.s_timeline
 msgid "...and switch the timeline contents to fit your needs."
 msgstr "...และเปลี่ยนเนื้อหาไทม์ไลน์ให้เหมาะกับความต้องการของคุณ"
-
-#. module: website
-#: model_terms:ir.ui.view,arch_db:website.default_csv
-msgid "1,2,3"
-msgstr "1,2,3"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_media_list_options
@@ -254,7 +256,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_dynamic_snippet_options_template
 msgid "16"
-msgstr ""
+msgstr "16"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
@@ -355,7 +357,6 @@ msgstr "<b>เพิ่ม</b> รูปภาพที่ถูกเลือ�
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
 #: code:addons/website/static/src/js/tours/tour_utils.js:0
 #, python-format
 msgid "<b>Click Edit</b> to start designing your homepage."
@@ -374,17 +375,6 @@ msgstr "<b>คลิกที่ Snippet</b>เพื่อเข้าถึง
 #, python-format
 msgid "<b>Click on a text</b> to start editing it."
 msgstr "<b>คลิกที่ข้อความ</b>เพื่อเริ่มแก้ไขมัน"
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid ""
-"<b>Click on a text</b> to start editing it. <i>It's that easy to edit your "
-"content!</i>"
-msgstr ""
-"<b> คลิกที่ข้อความ </b> เพื่อเริ่มแก้ไข <i> "
-"มันง่ายมากที่จะแก้ไขเนื้อหาของคุณ! </i>"
 
 #. module: website
 #. openerp-web
@@ -487,17 +477,6 @@ msgstr "<b>สไลด์</b> ที่ปุ่มนี้เพื่อเ�
 #, python-format
 msgid "<b>Slide</b> this button to change the column size."
 msgstr "<b>สไลด์</b> ที่ปุ่มนี้เพื่อเปลี่ยนขนาดคอลัมน์"
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid ""
-"<b>That's it!</b><p>Your page is all set to go live. Click the "
-"<b>Publish</b> button to publish it on the website.</p>"
-msgstr ""
-"<b>That's it!</b><p>Your page is all set to go live. Click the "
-"<b>Publish</b> button to publish it on the website.</p>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.view_edit_robots
@@ -730,31 +709,6 @@ msgid "<i>Instant setup, satisfied or reimbursed.</i>"
 msgstr "<i>Instant setup, satisfied or reimbursed.</i>"
 
 #. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid "<p><b>Click here</b> to create a new page.</p>"
-msgstr "<p><b>Click here</b> to create a new page.</p>"
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid ""
-"<p><b>Your homepage is live.</b></p><p>Let's add a new page for your "
-"site.</p>"
-msgstr ""
-"<p><b>Your homepage is live.</b></p><p>Let's add a new page for your "
-"site.</p>"
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid "<p>Enter a title for the page.</p>"
-msgstr "<p>Enter a title for the page.</p>"
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.template_header_magazine_oe_structure_header_magazine_1
 msgid "<small class=\"s_share_title d-none\"><b>Follow us</b></small>"
 msgstr "<small class=\"s_share_title d-none\"><b>ติดตามเรา</b></small>"
@@ -888,6 +842,15 @@ msgid ""
 msgstr ""
 "<span class=\"o_add_images\" style=\"cursor: pointer;\"><i class=\"fa fa-"
 "plus-circle\"/> เพิ่มรูปภาพ</span>"
+
+#. module: website
+#: model_terms:ir.ui.view,arch_db:website.layout
+msgid ""
+"<span class=\"o_footer_copyright_name mr-2\">Copyright &amp;copy; Company "
+"name</span>"
+msgstr ""
+"<span class=\"o_footer_copyright_name mr-2\">Copyright &amp;copy; Company "
+"name</span>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -1322,14 +1285,6 @@ msgstr "ที่อยู่"
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
 msgid "Advertising &amp; Marketing"
 msgstr "การโฆษณาและการตลาด"
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid "After having checked how it looks on mobile, <b>close the preview</b>."
-msgstr ""
-"After having checked how it looks on mobile, <b>close the preview</b>."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
@@ -2003,8 +1958,8 @@ msgstr "ตรวจสอบการกำหนดค่าของคุณ
 #. openerp-web
 #: code:addons/website/static/src/js/editor/snippets.editor.js:0
 #, python-format
-msgid "Check your connexion and try again"
-msgstr ""
+msgid "Check your connection and try again"
+msgstr "ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_product_catalog
@@ -2097,24 +2052,9 @@ msgid "Click on"
 msgstr "คลิก"
 
 #. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid "Click on <b>Continue</b> to create the page."
-msgstr "Click on <b>Continue</b> to create the page."
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_process_steps
 msgid "Click on the icon to adapt it <br/>to your purpose."
 msgstr "คลิกที่ไอคอนเพื่อปรับเปลี่ยน <br/>ตามจุดประสงค์ของคุณ"
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid "Click the <b>Save</b> button."
-msgstr "Click the <b>Save</b> button."
 
 #. module: website
 #. openerp-web
@@ -2276,6 +2216,7 @@ msgstr "ติดต่อ"
 #. module: website
 #: code:addons/website/models/website.py:0
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website.s_banner
 #: model_terms:ir.ui.view,arch_db:website.template_header_boxed_oe_structure_header_boxed_2
 #: model_terms:ir.ui.view,arch_db:website.template_header_default_oe_structure_header_default_1
 #: model_terms:ir.ui.view,arch_db:website.template_header_hamburger_oe_structure_header_hamburger_1
@@ -2422,7 +2363,9 @@ msgid "Countdown is over - Firework"
 msgstr "นับถอยหลังสิ้นสุด - ดอกไม้ไฟ"
 
 #. module: website
+#: code:addons/website/models/website.py:0
 #: model:ir.filters,name:website.dynamic_snippet_country_filter
+#, python-format
 msgid "Countries"
 msgstr "ประเทศ"
 
@@ -2611,15 +2554,6 @@ msgstr "ปรับแต่ง"
 #: model:ir.model.fields,field_description:website.field_theme_ir_ui_view__customize_show
 msgid "Customize Show"
 msgstr "ปรับแต่งการแสดง"
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid ""
-"Customize any block through this menu. Try to change the background color of"
-" this block."
-msgstr "ปรับแต่งบล็อกใด ๆ ผ่านเมนูนี้ ลองเปลี่ยนสีพื้นหลังของบล็อกนี้."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
@@ -3011,11 +2945,6 @@ msgid "Do not activate"
 msgstr "อย่าเปิดใช้งาน"
 
 #. module: website
-#: model_terms:ir.ui.view,arch_db:website.s_banner
-msgid "Do something"
-msgstr "Do something"
-
-#. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/editor/snippets.options.js:0
 #, python-format
@@ -3080,32 +3009,11 @@ msgstr "โดนัท"
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid "Drag another block in your page, below the cover."
-msgstr "ลากบล็อกอื่นในเพจของคุณด้านล่างปก."
-
-#. module: website
-#. openerp-web
 #: code:addons/website/static/src/js/tours/tour_utils.js:0
 #, python-format
 msgid ""
-"Drag the <b>%s</b> building block and drop it at the bottom of your page."
-msgstr ""
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid "Drag the <i>Cover</i> block and drop it in your page."
-msgstr "ลากบล็อก <i> หน้าปก </i> และวางในเพจของคุณ"
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid "Drag the block and drop it in your new page."
-msgstr "ลากบล็อกและวางในหน้าใหม่ของคุณ."
+"Drag the <b>%s</b> building block and drop it at the bottom of the page."
+msgstr "ลาก<b>%s</b> กล่องข้อความสำเร็จรูปและวางลงที่ด้านล่างของเพจ"
 
 #. module: website
 #. openerp-web
@@ -3757,13 +3665,6 @@ msgstr "ไปยังหน้า"
 
 #. module: website
 #. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid "Go back to the blocks menu."
-msgstr "กลับไปที่เมนูบล็อก"
-
-#. module: website
-#. openerp-web
 #: code:addons/website/static/src/xml/website.backend.xml:0
 #, python-format
 msgid "Go to"
@@ -3796,17 +3697,6 @@ msgstr "ไปยังเว็บไซต์"
 #, python-format
 msgid "Go to the Options tab"
 msgstr ""
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/tours/homepage.js:0
-#, python-format
-msgid ""
-"Good Job! You have designed your homepage. Let's check how this page looks "
-"like on <b>mobile devices</b>."
-msgstr ""
-"Good Job! You have designed your homepage. Let's check how this page looks "
-"like on <b>mobile devices</b>."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_carousel
@@ -4540,11 +4430,6 @@ msgid "Installing \"%s\""
 msgstr "กำลังติดตั้ง \"%s\""
 
 #. module: website
-#: model_terms:ir.actions.act_window,help:website.website_visitors_action
-msgid "Interact with them by sending them messages."
-msgstr "Interact with them by sending them messages."
-
-#. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
 msgid "Interaction History"
 msgstr "ประวัติการโต้ตอบ"
@@ -4649,17 +4534,6 @@ msgstr ""
 #, python-format
 msgid "It looks like your file is being called by"
 msgstr "It looks like your file is being called by"
-
-#. module: website
-#. openerp-web
-#: code:addons/website/static/src/js/content/website_root.js:0
-#, python-format
-msgid ""
-"It might be possible to edit the relevant items or fix the issue in <a "
-"href=\"%s\">the classic Odoo interface</a>"
-msgstr ""
-"It might be possible to edit the relevant items or fix the issue in <a "
-"href=\"%s\">the classic Odoo interface</a>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
@@ -7347,7 +7221,7 @@ msgstr "ธีม"
 #. module: website
 #: model:ir.model,name:website.model_theme_ir_attachment
 msgid "Theme Attachments"
-msgstr ""
+msgstr "การแนบธีม"
 
 #. module: website
 #. openerp-web
@@ -7356,14 +7230,14 @@ msgstr ""
 #: model_terms:website.page,arch_db:website.color_combinations_debug_page
 #, python-format
 msgid "Theme Colors"
-msgstr ""
+msgstr "สีธีม"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Theme Options"
-msgstr ""
+msgstr "ตัวเลือกธีม"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_attachment__theme_template_id
@@ -7371,17 +7245,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website_menu__theme_template_id
 #: model:ir.model.fields,field_description:website.field_website_page__theme_template_id
 msgid "Theme Template"
-msgstr ""
+msgstr "เทมเพลตธีม"
 
 #. module: website
 #: model:ir.model,name:website.model_theme_ir_ui_view
 msgid "Theme UI View"
-msgstr ""
+msgstr "มุมมอง UI ธีม"
 
 #. module: website
 #: model:ir.model,name:website.model_theme_utils
 msgid "Theme Utils"
-msgstr ""
+msgstr "ยูทิลิตี้ธีม"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.theme_view_kanban
@@ -7397,7 +7271,7 @@ msgstr "There are currently no pages for your website."
 #: code:addons/website/models/website_visitor.py:0
 #, python-format
 msgid "There are no contact and/or no email linked to this visitor."
-msgstr ""
+msgstr "ไม่มีการติดต่อและ/หรืออีเมลที่เชื่อมโยงกับผู้เยี่ยมชมรายนี้"
 
 #. module: website
 #. openerp-web
@@ -7431,7 +7305,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
 msgid "Thick"
-msgstr ""
+msgstr "หนา"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
@@ -7505,7 +7379,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_popup_options
 msgid "This page"
-msgstr ""
+msgstr "เพจนี้"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.page_404
@@ -7525,7 +7399,7 @@ msgstr "This page is in the menu <b>%s</b>"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.one_page_line
 msgid "This page will be published on {{ date_formatted }}"
-msgstr ""
+msgstr "หน้านี้จะถูกเผยแพร่เมื่อ {{ date_formatted }}"
 
 #. module: website
 #. openerp-web
@@ -7551,14 +7425,14 @@ msgstr "Time since last page view. E.g.: 2 minutes ago"
 #. module: website
 #: model:ir.model.fields,help:website.field_website_page__cache_time
 msgid "Time to cache the page. (0 = no cache)"
-msgstr ""
+msgstr "ถึงเวลาแคชหน้า. (0 = no cache)"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/snippets/s_countdown/000.xml:0
 #, python-format
 msgid "Time's up! You can now visit"
-msgstr ""
+msgstr "หมดเวลา! เข้าชมได้แล้วที่"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_facebook_page_options
@@ -7574,19 +7448,19 @@ msgstr "เขตเวลา"
 #: model:digest.tip,name:website.digest_tip_website_0
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_0
 msgid "Tip: Engage with visitors to convert them into leads"
-msgstr ""
+msgstr "Tip: สร้างการมีส่วนร่วมกับผู้เยี่ยมชมเพื่อแปลงเป็นลูกค้าเป้าหมาย"
 
 #. module: website
 #: model:digest.tip,name:website.digest_tip_website_2
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_2
 msgid "Tip: Search Engine Optimization (SEO)"
-msgstr ""
+msgstr "Tip: เพิ่มประสิทธิภาพการค้นหา (SEO)"
 
 #. module: website
 #: model:digest.tip,name:website.digest_tip_website_1
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_1
 msgid "Tip: Use royalty-free photos"
-msgstr ""
+msgstr "Tip: ใช้ภาพถ่ายปลอดค่าลิขสิทธิ์"
 
 #. module: website
 #. openerp-web
@@ -7598,7 +7472,7 @@ msgstr "คำนำหน้าชื่อ"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_share_options
 msgid "Title Position"
-msgstr ""
+msgstr "ตำแหน่งชื่อเรื่อง"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_three_columns
@@ -7619,6 +7493,10 @@ msgid ""
 "will recommend you the best keywords to target. Then adapt your title and "
 "description accordingly to boost your traffic."
 msgstr ""
+"เพื่อให้มีผู้เข้าชมมากขึ้น คุณควรกำหนดเป้าหมายคำสำคัญที่มักถูกค้นหาใน Google"
+" ด้วยเครื่องมือ SEO ที่มีในตัว เมื่อคุณกำหนดคำสำคัญเพียงสองสามคำแล้ว Odoo "
+"จะแนะนำคำสำคัญที่ดีที่สุดอื่น ๆ ให้คุณเพื่อกำหนดเป้าหมาย "
+"จากนั้นปรับชื่อและคำอธิบายของคุณให้เหมาะสมเพื่อเพิ่มจำนวนการเข้าชม"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -7678,7 +7556,7 @@ msgstr "Top Menu for Website %s"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options_background_options
 msgid "Top to Bottom"
-msgstr ""
+msgstr "บนลงล่าง"
 
 #. module: website
 #: model:ir.model.fields,help:website.field_website_visitor__page_count
@@ -7701,7 +7579,7 @@ msgstr "Track"
 #: code:addons/website/static/src/xml/track_page.xml:0
 #, python-format
 msgid "Track Visitor"
-msgstr ""
+msgstr "ติดตามผู้เยี่ยมชม"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -7857,12 +7735,12 @@ msgstr "ไปยัง URL"
 #: code:addons/website/static/src/xml/website.seo.xml:0
 #, python-format
 msgid "Unalterable unique identifier"
-msgstr ""
+msgstr "ตัวระบุเฉพาะที่ไม่สามารถเปลี่ยนแปลงได้"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Underline On Hover"
-msgstr ""
+msgstr "ขีดเส้นใต้บน Hover"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -7870,6 +7748,8 @@ msgid ""
 "Understand how visitors engage with our website, via Google Analytics.\n"
 "                                                Learn more about"
 msgstr ""
+"ทำความเข้าใจว่าผู้เยี่ยมชมสามารถมีส่วนร่วมกับเว็บไซต์ของเราอย่างไรผ่าน Google Analytics\n"
+"                                               เรียนรู้เพิ่มเติม"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.index_management
@@ -7906,7 +7786,7 @@ msgstr "ยกเลิกการเป็นสมาชิก"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.theme_view_kanban
 msgid "Update theme"
-msgstr ""
+msgstr "อัปเดตธีม"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_theme_ir_attachment__url
@@ -7923,7 +7803,7 @@ msgstr "ที่อยู่ Url"
 #. module: website
 #: model:ir.model.fields,help:website.field_website_visitor__country_flag
 msgid "Url of static flag image"
-msgstr ""
+msgstr "URL ของภาพธงคงที่"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_visitor_page_view_search
@@ -7941,6 +7821,7 @@ msgstr "Use Google Map on your website ("
 #, python-format
 msgid "Use Google Map on your website (Contact Us page, snippets, etc)."
 msgstr ""
+"ใช้ Google Map บนเว็บไซต์ของคุณ เช่น ในหน้าติดต่อเรา Snippet และ อื่น ๆ "
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -8322,16 +8203,17 @@ msgid ""
 "We are a team of passionate people whose goal is to improve everyone's "
 "life.<br/>Our services are designed for small to medium size companies."
 msgstr ""
+"เราเป็นทีมที่มีความกระตือรือร้นซึ่งมีเป้าหมายเพื่อปรับปรุงชีวิตของทุกคน<br/>บริการของเราออกแบบมาสำหรับบริษัทขนาดเล็กถึงขนาดกลาง"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_progress_bar
 msgid "We are almost done!"
-msgstr ""
+msgstr "เราใกล้จะเสร็จแล้ว!"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_references
 msgid "We are in good company."
-msgstr ""
+msgstr "เราอยู่ในบริษัทที่ดี"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -8352,7 +8234,7 @@ msgstr "We found these ones:"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.template_header_slogan_oe_structure_header_slogan_1
 msgid "We help <b>you</b> grow your business"
-msgstr ""
+msgstr "เราช่วย <b>คุณ</b> พัฒนาธุรกิจของคุณ"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -8380,6 +8262,8 @@ msgid ""
 "We use them to store info about your habits on our website. It will helps us"
 " to provide you the very best experience and customize what you see."
 msgstr ""
+"เราใช้มันเพื่อเก็บข้อมูลเกี่ยวกับนิสัยของคุณบนเว็บไซต์ของเรา "
+"ซึ่งจะช่วยให้เรามอบประสบการณ์ที่ดีที่สุดแก่คุณและปรับแต่งสิ่งที่คุณเห็น"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_visitor_view_tree
@@ -8499,7 +8383,7 @@ msgstr "ตั้งค่าเว็บไซต์"
 #. module: website
 #: model:ir.model,name:website.model_website_snippet_filter
 msgid "Website Snippet Filter"
-msgstr ""
+msgstr "ตัวกรอง Snippet ของเว็บไซต์"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.onboarding_website_theme_step
@@ -8509,12 +8393,12 @@ msgstr ""
 #. module: website
 #: model:ir.model,name:website.model_theme_website_menu
 msgid "Website Theme Menu"
-msgstr ""
+msgstr "เมนูเว็บไซต์ธีม"
 
 #. module: website
 #: model:ir.model,name:website.model_theme_website_page
 msgid "Website Theme Page"
-msgstr ""
+msgstr "เพจเว็บไซต์ธีม"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -8620,7 +8504,7 @@ msgstr "Website rewrites"
 #. module: website
 #: model:ir.actions.server,name:website.ir_actions_server_website_google_analytics
 msgid "Website: Analytics"
-msgstr ""
+msgstr "เว็บไซต์: การวิเคราะห์"
 
 #. module: website
 #: model:ir.actions.server,name:website.ir_actions_server_website_dashboard
@@ -8661,7 +8545,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_table_of_content
 msgid "What you see is what you get"
-msgstr ""
+msgstr "สิ่งที่คุณเห็นคือสิ่งที่คุณได้รับ"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_hr_options
@@ -8678,7 +8562,7 @@ msgstr "Will be prefixed by http in canonical URLs if no scheme is specified"
 #. module: website
 #: model:ir.model.fields.selection,name:website.selection__ir_ui_view__visibility__password
 msgid "With Password"
-msgstr ""
+msgstr "ด้วยรหัสผ่าน"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_blockquote
@@ -8742,7 +8626,7 @@ msgstr "คุณสามารถแก้ไขสีและพื้นห
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_timeline
 msgid "You can edit, duplicate..."
-msgstr ""
+msgstr "คุณสามารถแก้ไข ทำซ้ำ..."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -8764,7 +8648,7 @@ msgstr "You can not have two users with the same login!"
 #: code:addons/website/models/website_snippet_filter.py:0
 #, python-format
 msgid "You can only use template prefixed by dynamic_filter_template_ "
-msgstr ""
+msgstr "คุณสามารถใช้ได้เฉพาะเทมเพลตที่นำหน้าด้วย dynamic_filter_template_ "
 
 #. module: website
 #: code:addons/website/controllers/backend.py:0
@@ -8800,7 +8684,7 @@ msgstr ""
 #: code:addons/website/models/res_config_settings.py:0
 #, python-format
 msgid "You haven't defined your domain"
-msgstr ""
+msgstr "คุณยังไม่ได้กำหนดโดเมนของคุณ"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -8857,6 +8741,8 @@ msgid ""
 "Your Dynamic Snippet will be displayed here... This message is displayed "
 "because you did not provided both a filter and a template to use.<br/>"
 msgstr ""
+"Dynamic Snippet ของคุณจะแสดงที่นี่... "
+"ข้อความนี้แสดงขึ้นเนื่องจากคุณไม่ได้ให้ทั้งตัวกรองและเทมเพลตที่จะใช้<br/>"
 
 #. module: website
 #. openerp-web
@@ -8903,7 +8789,7 @@ msgstr "Your search '"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_timeline
 msgid "Your title"
-msgstr ""
+msgstr "หัวข้อของคุณ"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_res_config_settings__social_youtube
@@ -8922,6 +8808,8 @@ msgid ""
 "__gads (Google)<br/>\n"
 "                                            __gac (Google)"
 msgstr ""
+"__gads (Google)<br/>\n"
+"                                            __gac (Google)"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -8931,13 +8819,17 @@ msgid ""
 "                                            _gid (Google)<br/>\n"
 "                                            _gac_* (Google)"
 msgstr ""
+"_ga (Google)<br/>\n"
+"                                            _gat (Google)<br/>\n"
+"                                            _gid (Google)<br/>\n"
+"                                            _gac_* (Google)"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "and copy paste the address of the font page here."
-msgstr ""
+msgstr "แล้วคัดลอกวางที่อยู่ของหน้าฟอนต์ที่นี่"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -8979,17 +8871,17 @@ msgstr "btn-secondary"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "celebration, launch"
-msgstr ""
+msgstr "งานเฉลิมฉลอง, เปิดตัว"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "chart, table, diagram, pie"
-msgstr ""
+msgstr "แผนภูมิแท่ง, ตาราง, แผนภูมิภาพ, แผนภูมิวงกลม"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "cite"
-msgstr ""
+msgstr "อ้างอิง"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -8999,17 +8891,17 @@ msgstr "columns, description"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "common answers, common questions"
-msgstr ""
+msgstr "คำตอบทั่วไป, คำถามทั่วไป"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "content"
-msgstr ""
+msgstr "เนื้อหา"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "customers, clients"
-msgstr ""
+msgstr "ลูกค้า, ผู้รับบริการ"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_popup_options
@@ -9099,6 +8991,11 @@ msgstr "hero, jumbotron"
 #, python-format
 msgid "https://fonts.google.com/specimen/Roboto"
 msgstr "https://fonts.google.com/specimen/Roboto"
+
+#. module: website
+#: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
+msgid "https://www.odoo.com"
+msgstr "https://www.odoo.com"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
@@ -9299,11 +9196,6 @@ msgstr "การประเมินค่าอันดับ"
 #: model:ir.model.fields,field_description:website.field_res_config_settings__website_id
 msgid "website"
 msgstr "เว็บไซต์"
-
-#. module: website
-#: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
-msgid "www.odoo.com"
-msgstr "www.odoo.com"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.qweb_500
