@@ -1543,10 +1543,11 @@ class StockMove(models.Model):
                 qty_split = move.product_uom._compute_quantity(move.product_uom_qty - move.quantity_done, move.product_id.uom_id, rounding_method='HALF-UP')
                 new_move_vals = move._split(qty_split)
                 backorder_moves_vals += new_move_vals
-        backorder_moves = self.env['stock.move'].create(backorder_moves_vals)
-        backorder_moves._action_confirm(merge=False)
-        if cancel_backorder:
-            backorder_moves.with_context(moves_todo=moves_todo)._action_cancel()
+        if not self.env.context.get('not_create_move', False):
+            backorder_moves = self.env['stock.move'].create(backorder_moves_vals)
+            backorder_moves._action_confirm(merge=False)
+            if cancel_backorder:
+                backorder_moves.with_context(moves_todo=moves_todo)._action_cancel()
         moves_todo.mapped('move_line_ids').sorted()._action_done()
         # Check the consistency of the result packages; there should be an unique location across
         # the contained quants.
