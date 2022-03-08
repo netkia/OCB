@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
+import logging
 from odoo import http
 from odoo.http import request
 
@@ -24,6 +25,14 @@ class VariantController(http.Controller):
             res.update({
                 'is_combination_possible': product_template._is_combination_possible(combination=combination, parent_combination=parent_combination),
             })
+            product_id = res.get('product_id')
+            if pricelist:
+                if product_id in pricelist.item_ids.mapped('product_id').ids:
+                    res.update({'is_combination_possible': True})
+                else:
+                    res.update({'is_combination_possible': False})
+            else:
+                res.update({'is_combination_possible': False})
         return res
 
     @http.route(['/sale/create_product_variant'], type='json', auth="user", methods=['POST'])

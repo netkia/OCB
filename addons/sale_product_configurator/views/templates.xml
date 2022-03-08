@@ -50,7 +50,7 @@
                                 </button>
                             </div>
                         </div>
-                        <p class="css_not_available_msg alert alert-warning">This combination does not exist.</p>
+                        <p class="css_not_available_msg alert alert-warning">El producto seleccionado no esta tarificado.</p>
                     </div>
                     <div class="col-lg-1 d-inline-block"></div>
                     <div class="col-lg-5 d-inline-block align-top text-left">

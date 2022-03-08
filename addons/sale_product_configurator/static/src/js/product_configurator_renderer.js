@@ -84,10 +84,10 @@ var ProductConfiguratorFormRenderer = FormRenderer.extend(VariantMixin, {
      *
      * @override
      */
-    _toggleDisable: function ($parent, isCombinationPossible) {
-        VariantMixin._toggleDisable.apply(this, arguments);
-        $parent.parents('.modal').find('.o_sale_product_configurator_add').toggleClass('disabled', !isCombinationPossible);
-    },
+    // _toggleDisable: function ($parent, isCombinationPossible) {
+    //     VariantMixin._toggleDisable.apply(this, arguments);
+    //     $parent.parents('.modal').find('.o_sale_product_configurator_add').toggleClass('disabled', !isCombinationPossible);
+    // },
 
     /**
      * Will fill the custom values input based on the provided initial configuration.
