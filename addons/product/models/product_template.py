@@ -624,11 +624,11 @@ class ProductTemplate(models.Model):
                             'product_template_attribute_value_ids': [(6, 0, combination.ids)],
                             'active': tmpl_id.active,
                         })
-                        if len(current_variants_to_create) > 1000:
-                            raise UserError(_(
-                                'The number of variants to generate is too high. '
-                                'You should either not generate variants for each combination or generate them on demand from the sales order. '
-                                'To do so, open the form view of attributes and change the mode of *Create Variants*.'))
+                        # if len(current_variants_to_create) > 1000:
+                        #     raise UserError(_(
+                        #         'The number of variants to generate is too high. '
+                        #         'You should either not generate variants for each combination or generate them on demand from the sales order. '
+                        #         'To do so, open the form view of attributes and change the mode of *Create Variants*.'))
                 variants_to_create += current_variants_to_create
                 variants_to_activate += current_variants_to_activate
 
