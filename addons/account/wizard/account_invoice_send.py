@@ -18,10 +18,14 @@ class AccountInvoiceSend(models.TransientModel):
     printed = fields.Boolean('Is Printed', default=False)
     invoice_ids = fields.Many2many('account.move', 'account_move_account_invoice_send_rel', string='Invoices')
     composer_id = fields.Many2one('mail.compose.message', string='Composer', required=True, ondelete='cascade')
+    def _load_default_template(self):
+        raise UserError(_("You can only send invoices."))
+        return self.env['mail.template'].search([('model', '=', 'account.move')], limit=1)
     template_id = fields.Many2one(
         'mail.template', 'Use template', index=True,
-        domain="[('model', '=', 'account.move')]"
+        domain="[('model', '=', 'account.move')]", default = _load_default_template
         )
+
 
     @api.model
     def default_get(self, fields):
