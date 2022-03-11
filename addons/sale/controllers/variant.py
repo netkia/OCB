@@ -45,12 +45,14 @@ class VariantController(http.Controller):
                     prod_ids=[res.get('product_id')],
                     categ_ids=categ_ids
                 )
-                if len(results) > 0:
+                if len(results) > 0 and 'price' in res and float(res.get('price')) > 0.0:
                     res.update({'is_combination_possible': True})
                 else:
                     res.update({'is_combination_possible': False})
             else:
                 res.update({'is_combination_possible': False})
+        logging.warning(results)
+        logging.warning(res)
         return res
 
     @http.route(['/sale/create_product_variant'], type='json', auth="user", methods=['POST'])
