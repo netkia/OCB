@@ -53,8 +53,6 @@ class VariantController(http.Controller):
                     res.update({'is_combination_possible': False})
             else:
                 res.update({'is_combination_possible': False})
-        logging.warning(results)
-        logging.warning(res)
         return res
 
     @http.route(['/sale/create_product_variant'], type='json', auth="user", methods=['POST'])
