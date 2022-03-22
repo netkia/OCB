@@ -26,9 +26,9 @@ var InventoryReportListController = ListController.extend({
         if (this.context.no_at_date) {
             return;
         }
-        var $buttonToDate = $(qweb.render('InventoryReport.Buttons'));
-        $buttonToDate.on('click', this._onOpenWizard.bind(this));
-        this.$buttons.prepend($buttonToDate);
+        // var $buttonToDate = $(qweb.render('InventoryReport.Buttons'));
+        // $buttonToDate.on('click', this._onOpenWizard.bind(this));
+        // this.$buttons.prepend($buttonToDate);
     },
 
     // -------------------------------------------------------------------------
