@@ -27,6 +27,8 @@ class VariantController(http.Controller):
                 'is_combination_possible': product_template._is_combination_possible(combination=combination, parent_combination=parent_combination),
             })
             
+            
+                        
             product = res.get('product_id')
             producto_id = request.env['product.product'].search([('id', '=', product)])
             if pricelist and producto_id:

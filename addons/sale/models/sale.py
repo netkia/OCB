@@ -92,7 +92,7 @@ class SaleOrder(models.Model):
             if order.state not in ('sale', 'done'):
                 order.invoice_status = 'no'
             elif any(invoice_status == 'to invoice' for invoice_status in line_invoice_status):
-                order.invoice_status = 'to invoice'
+                order.invoice_status = 'invoiced'
             elif line_invoice_status and all(invoice_status == 'invoiced' for invoice_status in line_invoice_status):
                 order.invoice_status = 'invoiced'
             elif line_invoice_status and all(invoice_status in ('invoiced', 'upselling') for invoice_status in line_invoice_status):
