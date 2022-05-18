@@ -5,6 +5,7 @@ from odoo import models, fields, api
 from odoo.tools.pdf import OdooPdfFileReader, OdooPdfFileWriter
 from odoo.osv import expression
 from odoo.tools import html_escape
+from odoo.exceptions import RedirectWarning
 
 from lxml import etree
 import base64
@@ -427,9 +428,12 @@ class AccountEdiFormat(models.Model):
         content = base64.b64decode(attachment.with_context(bin_size=False).datas)
         to_process = []
 
+        # XML attachments received by mail have a 'text/plain' mimetype.
+        # Therefore, if content start with '<?xml', it is considered as XML.
+        is_text_plain_xml = 'text/plain' in attachment.mimetype and content.startswith(b'<?xml')
         if 'pdf' in attachment.mimetype:
             to_process.extend(self._decode_pdf(attachment.name, content))
-        elif 'xml' in attachment.mimetype:
+        elif 'xml' in attachment.mimetype or is_text_plain_xml:
             to_process.extend(self._decode_xml(attachment.name, content))
         else:
             to_process.extend(self._decode_binary(attachment.name, content))
@@ -453,6 +457,8 @@ class AccountEdiFormat(models.Model):
                         file_data['pdf_reader'].stream.close()
                     else:
                         res = edi_format._create_invoice_from_binary(file_data['filename'], file_data['content'], file_data['extension'])
+                except RedirectWarning as rw:
+                    raise rw
                 except Exception as e:
                     _logger.exception("Error importing attachment \"%s\" as invoice with format \"%s\"", file_data['filename'], edi_format.name, str(e))
                 if res:

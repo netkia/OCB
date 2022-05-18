@@ -547,6 +547,7 @@ class PurchaseOrder(models.Model):
             raise UserError(_('Please define an accounting purchase journal for the company %s (%s).') % (self.company_id.name, self.company_id.id))
 
         partner_invoice_id = self.partner_id.address_get(['invoice'])['invoice']
+        partner_bank_id = self.partner_id.bank_ids.filtered_domain(['|', ('company_id', '=', False), ('company_id', '=', self.company_id.id)])[:1]
         invoice_vals = {
             'ref': self.partner_ref or '',
             'move_type': move_type,
@@ -556,7 +557,7 @@ class PurchaseOrder(models.Model):
             'partner_id': partner_invoice_id,
             'fiscal_position_id': (self.fiscal_position_id or self.fiscal_position_id.get_fiscal_position(partner_invoice_id)).id,
             'payment_reference': self.partner_ref or '',
-            'partner_bank_id': self.partner_id.bank_ids[:1].id,
+            'partner_bank_id': partner_bank_id.id,
             'invoice_origin': self.name,
             'invoice_payment_term_id': self.payment_term_id.id,
             'invoice_line_ids': [],
@@ -1106,8 +1107,16 @@ class PurchaseOrderLine(models.Model):
             price_unit = seller.product_uom._compute_price(price_unit, self.product_uom)
 
         self.price_unit = price_unit
-        product_ctx = {'seller_id': seller.id, 'lang': get_lang(self.env, self.partner_id.lang).code}
-        self.name = self._get_product_purchase_description(self.product_id.with_context(product_ctx))
+
+        default_names = []
+        vendors = self.product_id._prepare_sellers({})
+        for vendor in vendors:
+            product_ctx = {'seller_id': vendor.id, 'lang': get_lang(self.env, self.partner_id.lang).code}
+            default_names.append(self._get_product_purchase_description(self.product_id.with_context(product_ctx)))
+
+        if (self.name in default_names or not self.name):
+            product_ctx = {'seller_id': seller.id, 'lang': get_lang(self.env, self.partner_id.lang).code}
+            self.name = self._get_product_purchase_description(self.product_id.with_context(product_ctx))
 
     @api.depends('product_uom', 'product_qty', 'product_id.uom_id')
     def _compute_product_uom_qty(self):

@@ -6,6 +6,7 @@ from odoo.addons.stock_account.tests.test_anglo_saxon_valuation_reconciliation_c
 from odoo.addons.sale.tests.common import TestSaleCommon
 from odoo.exceptions import UserError
 from odoo.tests import Form, tagged
+from odoo.tests.common import SavepointCase
 
 
 @tagged('post_install', '-at_install')
@@ -1048,12 +1049,41 @@ class TestSaleStock(TestSaleCommon, ValuationReconciliationTestCommon):
         picking.button_validate()
         self.assertEqual(so.order_line.mapped('qty_delivered'), [4.0], 'Sale: no conversion error on delivery in different uom"')
 
+    def test_17_deliver_more_and_multi_uom(self):
+        """
+        Deliver an additional product with a UoM different than its default one
+        This UoM should be the same on the generated SO line
+        """
+        uom_m_id = self.ref("uom.product_uom_meter")
+        uom_km_id = self.ref("uom.product_uom_km")
+        self.product_b.write({
+            'uom_id': uom_m_id,
+            'uom_po_id': uom_m_id,
+        })
 
-class TestSaleStockOnly(TestSaleCommon):
+        so = self._get_new_sale_order(product=self.product_a)
+        so.action_confirm()
 
-    @classmethod
-    def setUpClass(cls, chart_template_ref=None):
-        super().setUpClass(chart_template_ref=chart_template_ref)
+        picking = so.picking_ids
+        self.env['stock.move'].create({
+            'picking_id': picking.id,
+            'location_id': picking.location_id.id,
+            'location_dest_id': picking.location_dest_id.id,
+            'name': self.product_b.name,
+            'product_id': self.product_b.id,
+            'product_uom_qty': 1,
+            'product_uom': uom_km_id,
+        })
+        action = picking.button_validate()
+        wizard = Form(self.env[action['res_model']].with_context(action['context'])).save()
+        wizard.process()
+
+        self.assertEqual(so.order_line[1].product_id, self.product_b)
+        self.assertEqual(so.order_line[1].qty_delivered, 1)
+        self.assertEqual(so.order_line[1].product_uom.id, uom_km_id)
+
+
+class TestSaleStockOnly(SavepointCase):
 
     def test_no_automatic_assign(self):
         """
@@ -1066,7 +1096,7 @@ class TestSaleStockOnly(TestSaleCommon):
         self.env['stock.quant']._update_available_quantity(product, warehouse.lot_stock_id, 3)
 
         so_form = Form(self.env['sale.order'])
-        so_form.partner_id = self.partner_a
+        so_form.partner_id = self.env['res.partner'].create({'name': 'Res Partner Test'})
         with so_form.order_line.new() as line:
             line.product_id = product
             line.product_uom_qty = 3

@@ -1802,6 +1802,75 @@ class TestAccountMoveOutInvoiceOnchanges(AccountTestInvoicingCommon):
             'amount_total': 260.01,
         })
 
+    def test_out_invoice_line_tax_fixed_price_include_free_product(self):
+        ''' Check that fixed tax include are correctly computed while the price_unit is 0
+        '''
+        fixed_tax_price_include = self.env['account.tax'].create({
+            'name': 'BEBAT 0.05',
+            'type_tax_use': 'sale',
+            'amount_type': 'fixed',
+            'amount': 0.05,
+            'price_include': True,
+            'include_base_amount': True,
+        })
+        invoice = self.env['account.move'].create({
+            'move_type': 'out_invoice',
+            'invoice_date': '2022-03-03',
+            'date': '2022-03-03',
+            'partner_id': self.partner_a.id,
+            'invoice_line_ids': [(0, 0, {
+                'name': 'Free product',
+                'price_unit': 0.0,
+                'account_id': self.company_data['default_account_revenue'].id,
+                'tax_ids': [(6, 0, fixed_tax_price_include.ids)],
+            })],
+        })
+        self.assertRecordValues(invoice, [{
+            'amount_untaxed': -0.05,
+            'amount_tax': 0.05,
+            'amount_total': 0.0,
+        }])
+
+    def test_out_invoice_line_taxes_fixed_price_include_free_product(self):
+        ''' Check that fixed tax include are correctly computed while the price_unit is 0
+        '''
+        # please ensure this test remains consistent with
+        # test_free_product_and_price_include_fixed_tax in the sale module
+        fixed_tax_price_include_1 = self.env['account.tax'].create({
+            'name': 'BEBAT 0.05',
+            'type_tax_use': 'sale',
+            'amount_type': 'fixed',
+            'amount': 0.05,
+            'price_include': True,
+            'include_base_amount': True,
+        })
+        fixed_tax_price_include_2 = self.env['account.tax'].create({
+            'name': 'Recupel 0.25',
+            'type_tax_use': 'sale',
+            'amount_type': 'fixed',
+            'amount': 0.25,
+            'price_include': True,
+            'include_base_amount': True,
+        })
+        invoice = self.env['account.move'].create({
+            'move_type': 'out_invoice',
+            'invoice_date': '2022-03-03',
+            'date': '2022-03-03',
+            'partner_id': self.partner_a.id,
+            'invoice_line_ids': [(0, 0, {
+                'name': 'Free product',
+                'price_unit': 0.0,
+                'account_id': self.company_data['default_account_revenue'].id,
+                'tax_ids': [(6, 0, (fixed_tax_price_include_1 + fixed_tax_price_include_2).ids)],
+            })],
+        })
+
+        self.assertRecordValues(invoice, [{
+            'amount_untaxed': -0.30,
+            'amount_tax': 0.30,
+            'amount_total': 0.0,
+        }])
+
     def test_out_invoice_create_refund(self):
         self.invoice.action_post()
 
@@ -3322,3 +3391,24 @@ class TestAccountMoveOutInvoiceOnchanges(AccountTestInvoicingCommon):
                 'credit': value['debit'],
             })
         self.assertRecordValues(reversed_caba_move.line_ids, expected_values)
+
+    def test_changeprice_unit_to_zero(self):
+        move = self.env['account.move'].create({
+            'move_type': 'out_invoice',
+            'partner_id': self.partner_a.id,
+            'invoice_date': fields.Date.from_string('2017-01-01'),
+            'invoice_line_ids': [
+                (0, None, {
+                    'product_id': self.product_a.id,
+                    'product_uom_id': self.product_a.uom_id.id,
+                    'quantity': 1.0,
+                    'price_unit': 1000.0,
+                    'tax_ids': [(6, 0, [])],
+                })]
+        })
+
+        move.write({'invoice_line_ids': [(1, move.invoice_line_ids.ids[0], {
+            'price_unit': 0.0,
+        })]})
+
+        self.assertTrue(all(line.price_unit == 0 for line in move.line_ids))

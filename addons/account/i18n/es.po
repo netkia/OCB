@@ -3288,7 +3288,7 @@ msgstr "Plantillas de plan"
 #: model_terms:ir.ui.view,arch_db:account.onboarding_chart_of_account_step
 #, python-format
 msgid "Chart of Accounts"
-msgstr "Plan de cuentas"
+msgstr "Plan contable"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_chart_template_form
@@ -6697,6 +6697,16 @@ msgstr ""
 #: code:addons/account/models/account_tax.py:0
 #, python-format
 msgid ""
+"Invoice and credit note repartition should have at least one tax repartition"
+" line."
+msgstr ""
+"La repartición de facturas y notas de crédito debe tener por lo menos una "
+"línea de repartición de impuestos."
+
+#. module: account
+#: code:addons/account/models/account_tax.py:0
+#, python-format
+msgid ""
 "Invoice and credit note distribution should have the same number of lines."
 msgstr ""
 "La distribución de facturas y facturas rectificativas debe tener el mismo "
@@ -8718,7 +8728,7 @@ msgstr "Línea de estado de cuenta del originador"
 #: model:ir.model.fields,field_description:account.field_account_move_line__tax_line_id
 #: model_terms:ir.ui.view,arch_db:account.view_account_move_line_filter
 msgid "Originator Tax"
-msgstr "Impuesto del originador"
+msgstr "Impuesto (cuota)"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_move_line__tax_repartition_line_id

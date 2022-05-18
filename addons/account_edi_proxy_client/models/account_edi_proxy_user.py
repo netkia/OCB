@@ -19,7 +19,7 @@ _logger = logging.getLogger(__name__)
 
 
 DEFAULT_SERVER_URL = 'https://l10n-it-edi.api.odoo.com'
-DEFAULT_TEST_SERVER_URL = 'https://iap-services-test-saas12-test-13-test-14-test-15.test.odoo.com'
+DEFAULT_TEST_SERVER_URL = 'https://iap-services-test.odoo.com'
 TIMEOUT = 30
 
 
@@ -137,7 +137,7 @@ class AccountEdiProxyClientUser(models.Model):
         )
         if self._get_demo_state() == 'demo':
             # simulate registration
-            response = {'id_client': 'demo', 'refresh_token': 'demo'}
+            response = {'id_client': f'demo{company.id}', 'refresh_token': 'demo'}
         else:
             try:
                 # b64encode returns a bytestring, we need it as a string

@@ -12,7 +12,7 @@ from dateutil.relativedelta import relativedelta
 from itertools import groupby
 
 from odoo import api, fields, models, _
-from odoo.exceptions import AccessError, UserError
+from odoo.exceptions import AccessError, UserError, ValidationError
 from odoo.tools import float_compare, float_round, float_is_zero, format_datetime
 from odoo.tools.misc import format_date
 
@@ -478,7 +478,7 @@ class MrpProduction(models.Model):
                 production.state = 'done'
             elif production.workorder_ids and all(wo_state in ('done', 'cancel') for wo_state in production.workorder_ids.mapped('state')):
                 production.state = 'to_close'
-            elif not production.workorder_ids and production.qty_producing >= production.product_qty:
+            elif not production.workorder_ids and float_compare(production.qty_producing, production.product_qty, precision_rounding=production.product_uom_id.rounding) >= 0:
                 production.state = 'to_close'
             elif any(wo_state in ('progress', 'done') for wo_state in production.workorder_ids.mapped('state')):
                 production.state = 'progress'
@@ -708,6 +708,13 @@ class MrpProduction(models.Model):
             self._create_workorder()
         else:
             self.workorder_ids = False
+
+    @api.constrains('product_id', 'move_raw_ids')
+    def _check_production_lines(self):
+        for production in self:
+            for move in production.move_raw_ids:
+                if production.product_id == move.product_id:
+                    raise ValidationError(_("The component %s should not be the same as the product to produce.") % production.product_id.display_name)
 
     def write(self, vals):
         if 'workorder_ids' in self:
@@ -1322,6 +1329,7 @@ class MrpProduction(models.Model):
     def action_cancel(self):
         """ Cancels production order, unfinished stock moves and set procurement
         orders in exception """
+        self.workorder_ids.filtered(lambda x: x.state not in ['done', 'cancel']).action_cancel()
         if not self.move_raw_ids:
             self.state = 'cancel'
             return True
@@ -1345,7 +1353,6 @@ class MrpProduction(models.Model):
             if finish_moves:
                 production._log_downside_manufactured_quantity({finish_move: (production.product_uom_qty, 0.0) for finish_move in finish_moves}, cancel=True)
 
-        self.workorder_ids.filtered(lambda x: x.state not in ['done', 'cancel']).action_cancel()
         finish_moves = self.move_finished_ids.filtered(lambda x: x.state not in ('done', 'cancel'))
         raw_moves = self.move_raw_ids.filtered(lambda x: x.state not in ('done', 'cancel'))
 
